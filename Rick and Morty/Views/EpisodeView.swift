@@ -3,6 +3,7 @@
 import SwiftUI
 
 struct EpisodeView: View {
+    @Binding var shouldPopToRootView : Bool
     @Binding var episode: EpisodeModel
     @StateObject var model = Characters()
     var network = Network()
@@ -14,16 +15,35 @@ struct EpisodeView: View {
             Text("\(Labels.episodeNumber) \(episode.episode)")
             Text("\(Labels.airDate) \(episode.airDate)")
             let characters: [CharacterModel] = model.characters.filter { episode.characters.contains($0.id)}
-            List {
-                Section(header: Text("\(Labels.characterAppearance)")) {
+            Section(header: Text("\(Labels.characterAppearance)")) {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 10) {
+                    Divider()
                     ForEach(characters){ character in
-                        NavigationLink(destination: CharacterFullBioView(character: .constant(character))) {
+                        NavigationLink(destination: CharacterFullBioView(rootIsActive: $shouldPopToRootView, character: .constant(character))){
+                            HStack {
                             CharacterListItemView(character: .constant(character))
-                         }
+                                .padding(.leading)
+                                Spacer()
+                                Image(systemName: "chevron.forward")
+                                    .padding(.trailing)
+                            }
+                       
+                        }.isDetailLink(false)
+                        .foregroundColor(Color.primary)
+                        Divider()
                      }
+                    }
                 }
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(trailing:
+                    Button(action: {
+                        shouldPopToRootView = false
+                    }){
+                        Text(Labels.mainManu)
+                    })
     }
     
     func refresh() {

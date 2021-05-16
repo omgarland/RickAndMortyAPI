@@ -3,6 +3,9 @@
 import SwiftUI
 
 struct CharacterFullBioView: View {
+    @EnvironmentObject var appState: AppState
+    
+    @Binding var rootIsActive : Bool
     @Binding var character: CharacterModel
     @StateObject var episodeModel = Episodes()
     private let network = Network()
@@ -18,16 +21,34 @@ struct CharacterFullBioView: View {
             Text("\(Labels.status) \(character.status)")
             Text("\(Labels.species) \(character.species)")
             let episodes: [EpisodeModel] = episodeModel.episodes.filter{ character.episode.contains($0.id)}
-            List {
-                Section(header: Text("\(Labels.episodeAppearance)")) {
+            Divider()
+            ScrollView {
+               
                     ForEach(episodes){ episode in
-                        NavigationLink(destination: EpisodeView(episode:  .constant(episode))) {
+                        NavigationLink(destination: EpisodeView(shouldPopToRootView: $rootIsActive, episode:  .constant(episode))) {
+                            HStack{
                             Text(episode.name)
-                        }
+                                .padding(.leading)
+                                Spacer()
+                                Image(systemName: "chevron.forward")
+                                    .padding(.trailing)
+                            }
+                        }.isDetailLink(false)
+                        .foregroundColor(Color.primary)
+                        Divider()
                     }
-                }
+                
             }
         }.onAppear(perform: refresh)
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(trailing:
+                    Button(action: {
+                        rootIsActive = false
+                    }){
+                        Text(Labels.mainManu)
+                    })
+ 
     }
     
     func refresh()

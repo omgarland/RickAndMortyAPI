@@ -15,8 +15,8 @@ struct ExplainationView: View {
                             Text(item.text)
                                 .fontWeight(.bold)
                                 .font(.title)
-                                .multilineTextAlignment(.center)
                                 .frame(maxWidth: .infinity)
+                                .multilineTextAlignment(.center)
                                 .foregroundColor(.white)
                                 .background(Color(red: 0, green: 0, blue: 0, opacity: 0.5))
                             , alignment: .top

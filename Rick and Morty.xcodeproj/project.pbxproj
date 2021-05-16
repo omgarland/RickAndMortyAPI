@@ -37,6 +37,7 @@
 		C07E0465265178E4002FDB2B /* LocationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E0464265178E4002FDB2B /* LocationPage.swift */; };
 		C07E046726517900002FDB2B /* EpisodePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E046626517900002FDB2B /* EpisodePage.swift */; };
 		C07E046926517AE5002FDB2B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E046826517AE5002FDB2B /* K.swift */; };
+		C07E046B2651A8F9002FDB2B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E046A2651A8F9002FDB2B /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		C07E0464265178E4002FDB2B /* LocationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPage.swift; sourceTree = "<group>"; };
 		C07E046626517900002FDB2B /* EpisodePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodePage.swift; sourceTree = "<group>"; };
 		C07E046826517AE5002FDB2B /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		C07E046A2651A8F9002FDB2B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			children = (
 				C07E045B2651695F002FDB2B /* Extensions.swift */,
 				C07E046826517AE5002FDB2B /* K.swift */,
+				C07E046A2651A8F9002FDB2B /* AppState.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				C07E042026513F70002FDB2B /* AppDelegate.swift in Sources */,
 				C07E04412651421A002FDB2B /* Episodes.swift in Sources */,
 				C07E0446265142DC002FDB2B /* ImageLoader.swift in Sources */,
+				C07E046B2651A8F9002FDB2B /* AppState.swift in Sources */,
 				C07E043926514169002FDB2B /* Characters.swift in Sources */,
 				C07E043726514136002FDB2B /* CharacterModel.swift in Sources */,
 				C07E046926517AE5002FDB2B /* K.swift in Sources */,
