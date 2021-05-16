@@ -15,6 +15,7 @@ struct Labels {
     static let episodeAppearance = "Appeared in Episodes"
     static let characterAppearance = "Featured Characters"
     static let mainManu = "Main Menu"
+    static let characters = "Characters"
     
 }
 

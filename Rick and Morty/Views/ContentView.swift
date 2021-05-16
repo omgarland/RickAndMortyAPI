@@ -4,10 +4,6 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var model = Characters()
-    @State var isActive : Bool = false
-   // @EnvironmentObject private var characterCollection: Characters
-    @EnvironmentObject var appState: AppState
- 
     private var network = Network()
     
     var body: some View {
@@ -15,31 +11,27 @@ struct ContentView: View {
             VStack {
                 ExplainationView()
                 Divider()
+                Text("\(Labels.characters)")
+                    .fontWeight(.bold)
+                Divider()
                 ScrollView {
                     ForEach(model.characters){ character in
-                        NavigationLink(destination: CharacterFullBioView(rootIsActive: self.$isActive, character: .constant(character)), isActive: $isActive) {
+                        NavigationLink(destination: CharacterFullBioView(character: .constant(character))) {
                             HStack {
-                            CharacterListItemView(character: .constant(character))
-                                .padding(.leading)
+                                CharacterListItemView(character: .constant(character))
+                                    .padding(.leading)
                                 Spacer()
                                 Image(systemName: "chevron.forward")
                                     .padding(.trailing)
                             }
-                        }.isDetailLink(false)
+                        }
                         .foregroundColor(Color.primary)
                         Divider()
                     }
                 }
-            }.onAppear(perform: refresh)
-            .onReceive(self.appState.$moveToDashboard) { moveToDashboard in
-                           if moveToDashboard {
-                               print("Move to dashboard: \(moveToDashboard)")
-                              // self.isView1Active = false
-                               self.appState.moveToDashboard = false
-                           }
-                       }
-        }.navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarBackButtonHidden(true)
+            }
+        }.onAppear(perform: refresh)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     func refresh() {

@@ -3,9 +3,7 @@
 import SwiftUI
 
 struct CharacterFullBioView: View {
-    @EnvironmentObject var appState: AppState
     
-    @Binding var rootIsActive : Bool
     @Binding var character: CharacterModel
     @StateObject var episodeModel = Episodes()
     private let network = Network()
@@ -16,39 +14,30 @@ struct CharacterFullBioView: View {
                        placeholder: { Image("placeHolder")}
             )
             .frame(idealWidth: UIScreen.main.bounds.width)
-            Text("\(character.name)" )
+            Text("\(Labels.name) \(character.name)" )
             Text("\(Labels.gender) \(character.gender)")
             Text("\(Labels.status) \(character.status)")
             Text("\(Labels.species) \(character.species)")
             let episodes: [EpisodeModel] = episodeModel.episodes.filter{ character.episode.contains($0.id)}
             Divider()
+            Text("\(Labels.episodeAppearance)")
+                .fontWeight(.bold)
+            Divider()
             ScrollView {
-               
-                    ForEach(episodes){ episode in
-                        NavigationLink(destination: EpisodeView(shouldPopToRootView: $rootIsActive, episode:  .constant(episode))) {
-                            HStack{
+                ForEach(episodes){ episode in
+                    NavigationLink(destination: EpisodeView(episode:  .constant(episode))) {
+                        HStack{
                             Text(episode.name)
                                 .padding(.leading)
-                                Spacer()
-                                Image(systemName: "chevron.forward")
-                                    .padding(.trailing)
-                            }
-                        }.isDetailLink(false)
-                        .foregroundColor(Color.primary)
-                        Divider()
-                    }
-                
-            }
-        }.onAppear(perform: refresh)
-        .navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(trailing:
-                    Button(action: {
-                        rootIsActive = false
-                    }){
-                        Text(Labels.mainManu)
-                    })
- 
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                                .padding(.trailing)
+                        }
+                    }.foregroundColor(Color.primary)
+                    Divider()
+                }
+            }.onAppear(perform: refresh)
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     func refresh()
