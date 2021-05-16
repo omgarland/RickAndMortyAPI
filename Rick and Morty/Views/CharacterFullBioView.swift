@@ -2,17 +2,11 @@
 
 import SwiftUI
 
-struct CharacterFullBio: View {
+struct CharacterFullBioView: View {
     @Binding var character: CharacterModel
     @StateObject var episodeModel = Episodes()
-    private let network = NetworkingCombine()
+    private let network = Network()
     
-   /* init(character: Binding<CharacterModel>)
-    {
-        self._character = character
-        refresh()
-    }*/
-   
     var body: some View {
         VStack{
             AsyncImage(url: URL(string: character.image)!,
@@ -33,7 +27,8 @@ struct CharacterFullBio: View {
                     }
                 }
             }
-        }.onAppear(perform: refresh)
+        }
+        .onAppear(perform: refresh)
     }
   
     func refresh()

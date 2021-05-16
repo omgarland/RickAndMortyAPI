@@ -1,0 +1,28 @@
+[
+    {
+        "id" : 1,
+        "name" : "rick",
+        "text" : "Welcome to your new dimension."
+    },
+    {
+        "id" : 2,
+        "name" : "beth",
+        "text" : "This is a guide to learn about the inhabitants if this dimension...."
+    },
+    {
+        "id" : 3,
+        "name" : "morty",
+        "text" : "...and other dimensions"
+    },
+    {
+        "id" : 4,
+        "name" : "summer",
+        "text" : "Happy exploring!"
+    },
+    {
+        "id" : 5,
+        "name" : "jerry",
+        "text" : "That's all!! Go explore!"
+    }
+
+]

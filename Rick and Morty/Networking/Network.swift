@@ -3,7 +3,7 @@
 import Foundation
 import Combine
 
-class NetworkingCombine {
+class Network {
     private let url = URL(string: "https://rickandmortyapi.com/api/character")!
     private let urlLocation = URL(string: "https://rickandmortyapi.com/api/location")!
     private let urlEpisode = URL(string: "https://rickandmortyapi.com/api/episode")!

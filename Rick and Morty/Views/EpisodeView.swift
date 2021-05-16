@@ -5,7 +5,7 @@ import SwiftUI
 struct EpisodeView: View {
     @Binding var episode: EpisodeModel
     @StateObject var model = Characters()
-    var network = NetworkingCombine()
+    var network = Network()
     
     var body: some View {
         VStack {
@@ -16,8 +16,8 @@ struct EpisodeView: View {
             List {
                 Section(header: Text("Characters")) {
                     ForEach(characters){ character in
-                        NavigationLink(destination: CharacterFullBio(character: .constant(character))) {
-                            CharacterView(character: .constant(character))
+                        NavigationLink(destination: CharacterFullBioView(character: .constant(character))) {
+                            CharacterListItemView(character: .constant(character))
                          }
                      }
                 }

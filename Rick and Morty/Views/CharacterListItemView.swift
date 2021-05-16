@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct CharacterView: View {
+struct CharacterListItemView: View {
     @Binding var character: CharacterModel
     var body: some View {
         VStack (alignment: .leading){
