@@ -9,12 +9,13 @@ struct EpisodeView: View {
     
     var body: some View {
         VStack {
-            Text("Name: \(episode.name)")
-            Text("Episode: \(episode.episode)")
-            Text("Air Date: \(episode.airDate)")
+            Text("\(Labels.name) \(episode.name)")
+                .onAppear(perform: refresh)
+            Text("\(Labels.episodeNumber) \(episode.episode)")
+            Text("\(Labels.airDate) \(episode.airDate)")
             let characters: [CharacterModel] = model.characters.filter { episode.characters.contains($0.id)}
             List {
-                Section(header: Text("Characters")) {
+                Section(header: Text("\(Labels.characterAppearance)")) {
                     ForEach(characters){ character in
                         NavigationLink(destination: CharacterFullBioView(character: .constant(character))) {
                             CharacterListItemView(character: .constant(character))
@@ -22,7 +23,7 @@ struct EpisodeView: View {
                      }
                 }
             }
-        }.onAppear(perform: refresh)
+        }
     }
     
     func refresh() {
@@ -39,9 +40,3 @@ struct EpisodeView: View {
         }
     }
 }
-
-/*struct EpisodeView_Previews: PreviewProvider {
-    static var previews: some View {
-        EpisodeView()
-    }
-}*/

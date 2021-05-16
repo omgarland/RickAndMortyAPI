@@ -33,6 +33,10 @@
 		C07E045C2651695F002FDB2B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E045B2651695F002FDB2B /* Extensions.swift */; };
 		C07E045E265169ED002FDB2B /* ExplainationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E045D265169ED002FDB2B /* ExplainationView.swift */; };
 		C07E046026516A23002FDB2B /* Explaination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E045F26516A23002FDB2B /* Explaination.swift */; };
+		C07E0463265178A0002FDB2B /* CharacterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E0462265178A0002FDB2B /* CharacterPage.swift */; };
+		C07E0465265178E4002FDB2B /* LocationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E0464265178E4002FDB2B /* LocationPage.swift */; };
+		C07E046726517900002FDB2B /* EpisodePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E046626517900002FDB2B /* EpisodePage.swift */; };
+		C07E046926517AE5002FDB2B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07E046826517AE5002FDB2B /* K.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,10 @@
 		C07E045B2651695F002FDB2B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C07E045D265169ED002FDB2B /* ExplainationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainationView.swift; sourceTree = "<group>"; };
 		C07E045F26516A23002FDB2B /* Explaination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explaination.swift; sourceTree = "<group>"; };
+		C07E0462265178A0002FDB2B /* CharacterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPage.swift; sourceTree = "<group>"; };
+		C07E0464265178E4002FDB2B /* LocationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPage.swift; sourceTree = "<group>"; };
+		C07E046626517900002FDB2B /* EpisodePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodePage.swift; sourceTree = "<group>"; };
+		C07E046826517AE5002FDB2B /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +129,7 @@
 		C07E0433265140B3002FDB2B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C07E04612651788B002FDB2B /* Pages */,
 				C07E0434265140F2002FDB2B /* InfoModel.swift */,
 				C07E043626514136002FDB2B /* CharacterModel.swift */,
 				C07E043826514169002FDB2B /* Characters.swift */,
@@ -179,8 +188,19 @@
 			isa = PBXGroup;
 			children = (
 				C07E045B2651695F002FDB2B /* Extensions.swift */,
+				C07E046826517AE5002FDB2B /* K.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		C07E04612651788B002FDB2B /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				C07E0462265178A0002FDB2B /* CharacterPage.swift */,
+				C07E0464265178E4002FDB2B /* LocationPage.swift */,
+				C07E046626517900002FDB2B /* EpisodePage.swift */,
+			);
+			path = Pages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +279,7 @@
 				C07E0446265142DC002FDB2B /* ImageLoader.swift in Sources */,
 				C07E043926514169002FDB2B /* Characters.swift in Sources */,
 				C07E043726514136002FDB2B /* CharacterModel.swift in Sources */,
+				C07E046926517AE5002FDB2B /* K.swift in Sources */,
 				C07E042226513F70002FDB2B /* SceneDelegate.swift in Sources */,
 				C07E04502651442B002FDB2B /* CharacterListItemView.swift in Sources */,
 				C07E0454265144A5002FDB2B /* LocationView.swift in Sources */,
@@ -272,10 +293,13 @@
 				C07E045C2651695F002FDB2B /* Extensions.swift in Sources */,
 				C07E044A26514362002FDB2B /* ImageCache.swift in Sources */,
 				C07E044C26514383002FDB2B /* ImageCacheKey.swift in Sources */,
+				C07E046726517900002FDB2B /* EpisodePage.swift in Sources */,
 				C07E045E265169ED002FDB2B /* ExplainationView.swift in Sources */,
+				C07E0465265178E4002FDB2B /* LocationPage.swift in Sources */,
 				C07E046026516A23002FDB2B /* Explaination.swift in Sources */,
 				C07E0435265140F2002FDB2B /* InfoModel.swift in Sources */,
 				C07E045226514468002FDB2B /* CharacterFullBioView.swift in Sources */,
+				C07E0463265178A0002FDB2B /* CharacterPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

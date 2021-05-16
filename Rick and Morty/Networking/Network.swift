@@ -4,24 +4,20 @@ import Foundation
 import Combine
 
 class Network {
-    private let url = URL(string: "https://rickandmortyapi.com/api/character")!
-    private let urlLocation = URL(string: "https://rickandmortyapi.com/api/location")!
-    private let urlEpisode = URL(string: "https://rickandmortyapi.com/api/episode")!
-    
     private var cancellable: Cancellable?
     func requestAllCharacters(completion: @escaping (Result<CharacterPage, Error>) -> Void)
     {
-        request(url: url, decodingType: CharacterPage.self, resultCompletion: completion)
+        request(url: URLS.characters, decodingType: CharacterPage.self, resultCompletion: completion)
     }
     
     func requestAllLocations(completion: @escaping (Result<LocationPage, Error>) -> Void)
     {
-        request(url: urlLocation, decodingType: LocationPage.self, resultCompletion: completion)
+        request(url: URLS.locations, decodingType: LocationPage.self, resultCompletion: completion)
     }
     
     func requestAllEpisodes(completion: @escaping (Result<EpisodePage, Error>) -> Void)
     {
-        request(url: urlEpisode, decodingType: EpisodePage.self, resultCompletion: completion)
+        request(url: URLS.episodes, decodingType: EpisodePage.self, resultCompletion: completion)
     }
     
     private func request<T: Decodable & Pageable>(url: URL, decodingType: T.Type, resultCompletion: @escaping (Result<T, Error>) -> Void) {
@@ -51,7 +47,7 @@ class Network {
             .decode(type: T.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
-   
+    
     private func getSession() -> URLSession {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)

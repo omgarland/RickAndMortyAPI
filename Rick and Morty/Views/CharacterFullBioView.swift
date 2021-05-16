@@ -14,12 +14,12 @@ struct CharacterFullBioView: View {
             )
             .frame(idealWidth: UIScreen.main.bounds.width)
             Text("\(character.name)" )
-            Text("Gender: \(character.gender)")
-            Text("Status: \(character.status)")
-            Text("Species: \(character.species)")
+            Text("\(Labels.gender) \(character.gender)")
+            Text("\(Labels.status) \(character.status)")
+            Text("\(Labels.species) \(character.species)")
             let episodes: [EpisodeModel] = episodeModel.episodes.filter{ character.episode.contains($0.id)}
             List {
-                Section(header: Text("Episodes")) {
+                Section(header: Text("\(Labels.episodeAppearance)")) {
                     ForEach(episodes){ episode in
                         NavigationLink(destination: EpisodeView(episode:  .constant(episode))) {
                             Text(episode.name)
@@ -27,27 +27,21 @@ struct CharacterFullBioView: View {
                     }
                 }
             }
-        }
-        .onAppear(perform: refresh)
+        }.onAppear(perform: refresh)
     }
-  
+    
     func refresh()
     {
         if episodeModel.episodes.isEmpty {
             network.requestAllEpisodes { (result) in
-                 switch result {
-                 case .failure(let error):
-                     print(error.localizedDescription)
-                 case .success(let all):
-                     self.episodeModel.episodes.append(contentsOf: all.results)
-                 }
-             }
+                switch result {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                case .success(let all):
+                    self.episodeModel.episodes.append(contentsOf: all.results)
+                }
+            }
         }
     }
 }
 
-/*struct CharacterFullBio_Previews: PreviewProvider {
-    static var previews: some View {
-        CharacterFullBio()
-    }
-}*/

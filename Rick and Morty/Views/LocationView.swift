@@ -6,9 +6,9 @@ struct LocationView: View {
     @Binding var location: LocationModel
     var body: some View {
         VStack {
-            Text("Name: \(location.name)")
-            Text("Dimension: \(location.dimension)")
-            Text("Type: \(location.type)")
+            Text("\(Labels.name) \(location.name)")
+            Text("\(Labels.dimension) \(location.dimension)")
+            Text("\(Labels.type) \(location.type)")
         }
     }
 }
